@@ -1,0 +1,1 @@
+email sending fuction of local_db_server.py might not work due to using overdue IFTTT applet.

@@ -7,8 +7,8 @@
 #include "SoftwareSerial.h"
 #include <ArduinoJson.h>
 #include <HttpClient.h>
-#define SECRET_SSID "kavic 的 iPhone"
-#define SECRET_PASS "12345678"
+#define SECRET_SSID "ur_wifi_SSID"
+#define SECRET_PASS "ur_wifi_pw"
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -377,7 +377,7 @@ bool isMember(String UID) {
 ////////////////////////////////////////////Send HTTP Request///////////////////////
 void connect_localHost(String url) {
   client.setTimeout(10000);
-  if (!client.connect("172.20.10.4", 8080)) {
+  if (!client.connect("(ur server ip)", 8080)) {
     Serial.println(F("Connection failed"));
     Serial.println(F("Restarting!"));
     delay(5000);
@@ -387,7 +387,7 @@ void connect_localHost(String url) {
   client.println(url);  
   Serial.print(F("Connecting to "));
   Serial.println(url);
-  client.println(F("Host: 172.20.10.4"));
+  client.println(F("Host: (ur server ip)"));
   client.println(F("Connection: close"));
   if (client.println() == 0) {
     Serial.println(F("Failed to send request"));
